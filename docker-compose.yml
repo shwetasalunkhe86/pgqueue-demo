@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  pgqueue-db:
+    image: postgres:14
+    container_name: pgqueue-db
+    environment:
+      POSTGRES_USER: testrunner_queue
+      POSTGRES_PASSWORD: testrunner_queue
+      POSTGRES_DB: testrunner_queue
+    ports:
+      - "5555:5432"
+    volumes:
+      - pgqueue-data:/var/lib/postgresql/data
+
+volumes:
+  pgqueue-data:
